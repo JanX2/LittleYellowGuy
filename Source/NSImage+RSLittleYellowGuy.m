@@ -12,12 +12,18 @@
 
 @implementation NSImage (RSLittleYellowGuy)
 
+const NSRect kLittleYellowGuyRect = (NSRect){
+	.origin.x = 0,
+	.origin.y = 0,
+	.size.width = 34.0,
+	.size.height = 34.0
+};
+
 + (NSImage*) imageWithLittleYellowGuy
 {
 	// Alloc and init an empty image. The size doesn't matter, but it has to be non-zero to 
 	// end up getting drawn... Might as well match out pixel-ish assumptions in drawLittleYellowGuy:
-	NSRect guyRect = NSMakeRect(0,0,34.0,34.0);
-	NSImage* newImage = [[self alloc] initWithSize:guyRect.size];
+	NSImage* newImage = [[self alloc] initWithSize:kLittleYellowGuyRect.size];
 	
 	// Attach a custom drawing representation
 	NSCustomImageRep* guyRep = [[NSCustomImageRep alloc] initWithDrawSelector:@selector(drawLittleYellowGuy:) delegate:self];
@@ -34,7 +40,7 @@
 	[[NSGraphicsContext currentContext] saveGraphicsState];
 	
 	// Get some room to work with so we don't overrun the borders
-	NSRect targetRect = NSMakeRect(0, 0, 34.0, 34.0);
+	NSRect targetRect = kLittleYellowGuyRect;
 	targetRect = NSInsetRect(targetRect, 2.0, 2.0);
 
 	// Give him around 60 degrees of mouth
