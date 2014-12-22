@@ -18,22 +18,20 @@
 	// end up getting drawn... Might as well match out pixel-ish assumptions in drawLittleYellowGuy:
 	NSRect guyRect = NSMakeRect(0,0,34.0,34.0);
 	NSImage* newImage = [[self alloc] initWithSize:guyRect.size];
-	[newImage setScalesWhenResized:YES];
- 
+	
 	// Attach a custom drawing representation
 	NSCustomImageRep* guyRep = [[NSCustomImageRep alloc] initWithDrawSelector:@selector(drawLittleYellowGuy:) delegate:self];
 	[guyRep setSize:guyRect.size];
 	[newImage addRepresentation:guyRep];
-	[guyRep release];
-	return [newImage autorelease];
+	return newImage;
 }
 
 + (void) drawLittleYellowGuy:(NSCustomImageRep*)myImageRep
 {
 	// We tested this and fine-tuned it by drawing to a 34x34 space, so let's just 
 	// scale the context to suit that size.
-	float xScale = 34 / [myImageRep size].width;
-	float yScale = 34 / [myImageRep size].height;
+	CGFloat xScale = 34.0 / [myImageRep size].width;
+	CGFloat yScale = 34.0 / [myImageRep size].height;
 	[[NSGraphicsContext currentContext] saveGraphicsState];
 	NSAffineTransform* scaleTransform = [NSAffineTransform transform];
 	[scaleTransform scaleXBy:xScale yBy:yScale];

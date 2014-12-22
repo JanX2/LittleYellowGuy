@@ -14,6 +14,6 @@
 	IBOutlet NSImageView* oLittleGuyImageView;
 }
 
-- (NSImage*) littleYellowGuyImage;
+@property (nonatomic, readonly, copy) NSImage *littleYellowGuyImage;
 
 @end
