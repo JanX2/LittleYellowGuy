@@ -21,21 +21,17 @@
 	
 	// Attach a custom drawing representation
 	NSCustomImageRep* guyRep = [[NSCustomImageRep alloc] initWithDrawSelector:@selector(drawLittleYellowGuy:) delegate:self];
-	[guyRep setSize:guyRect.size];
 	[newImage addRepresentation:guyRep];
 	return newImage;
 }
 
 + (void) drawLittleYellowGuy:(NSCustomImageRep*)myImageRep
 {
-	// We tested this and fine-tuned it by drawing to a 34x34 space, so let's just 
-	// scale the context to suit that size.
-	CGFloat xScale = 34.0 / [myImageRep size].width;
-	CGFloat yScale = 34.0 / [myImageRep size].height;
+#pragma unused (myImageRep)
+	
+	// Ever since 10.6, we never get a myImageRep.size different from what we initialized it with.
+	
 	[[NSGraphicsContext currentContext] saveGraphicsState];
-	NSAffineTransform* scaleTransform = [NSAffineTransform transform];
-	[scaleTransform scaleXBy:xScale yBy:yScale];
-	[scaleTransform concat];
 	
 	// Get some room to work with so we don't overrun the borders
 	NSRect targetRect = NSMakeRect(0, 0, 34.0, 34.0);
