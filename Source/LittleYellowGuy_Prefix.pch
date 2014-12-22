@@ -1,0 +1,13 @@
+//
+//  LittleYellowGuy_Prefix.pch
+//  LittleYellowGuy
+//
+//  Created by Daniel Jalkut on 11/10/06.
+//  Copyright Red Sweater Software 2006. All rights reserved.
+//
+
+// Prefix header for all source files of the 'LittleYellowGuy' target in the 'LittleYellowGuy' project
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
