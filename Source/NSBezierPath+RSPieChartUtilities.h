@@ -11,6 +11,6 @@
 
 @interface NSBezierPath (RSPieChartUtilities)
 
-+ (NSBezierPath*) bezierPathForPieInRect:(NSRect)containerRect withWedgeRemovedFromStartingAngle:(float)startAngle toEndingAngle:(float)endAngle;
++ (NSBezierPath*) bezierPathForPieInRect:(NSRect)containerRect withWedgeRemovedFromStartingAngle:(CGFloat)startAngle toEndingAngle:(CGFloat)endAngle;
 
 @end

@@ -11,8 +11,8 @@
 
 @interface NSBezierPath (RSEasyTransform)
 
-- (void) transformScalingXBy:(float)scaleX yBy:(float)scaleY;
-- (void) transformTranslatingXBy:(float)translateX yBy:(float)translateY;
-- (void) transformRotatingByDegrees:(float)degrees;
+- (void) transformScalingXBy:(CGFloat)scaleX yBy:(CGFloat)scaleY;
+- (void) transformTranslatingXBy:(CGFloat)translateX yBy:(CGFloat)translateY;
+- (void) transformRotatingByDegrees:(CGFloat)degrees;
 
 @end

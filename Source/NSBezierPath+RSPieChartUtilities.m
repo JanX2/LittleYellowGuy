@@ -11,13 +11,13 @@
 
 @implementation NSBezierPath (RSPieChartUtilities)
 
-+ (NSBezierPath*) bezierPathForPieInRect:(NSRect)containerRect withWedgeRemovedFromStartingAngle:(float)startAngle toEndingAngle:(float)endAngle
++ (NSBezierPath*) bezierPathForPieInRect:(NSRect)containerRect withWedgeRemovedFromStartingAngle:(CGFloat)startAngle toEndingAngle:(CGFloat)endAngle
 {
 	// Creating an arc by swapping the start and finish angles
 	NSRect pieRect = NSInsetRect(containerRect, 1.0, 1.0);
 	NSBezierPath* piePath = [NSBezierPath bezierPath];
 	
-	float pieRadius = NSWidth(pieRect) / 2.0;	// assume a square rect
+	CGFloat pieRadius = NSWidth(pieRect) / 2.0;	// assume a square rect
 	NSPoint centerPoint = NSMakePoint(NSMidX(pieRect), NSMidY(pieRect));
 	[piePath appendBezierPathWithArcWithCenter:centerPoint radius:pieRadius startAngle:endAngle endAngle:startAngle];
 	[piePath lineToPoint:centerPoint];

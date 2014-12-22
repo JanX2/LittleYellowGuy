@@ -10,21 +10,21 @@
 
 @implementation NSBezierPath (RSEasyTransform)
 
-- (void) transformScalingXBy:(float)scaleX yBy:(float)scaleY
+- (void) transformScalingXBy:(CGFloat)scaleX yBy:(CGFloat)scaleY
 {
 	NSAffineTransform* theTransform = [NSAffineTransform transform];
 	[theTransform scaleXBy:scaleX yBy:scaleY];
 	[self transformUsingAffineTransform:theTransform];
 }
 
-- (void) transformTranslatingXBy:(float)translateX yBy:(float)translateY
+- (void) transformTranslatingXBy:(CGFloat)translateX yBy:(CGFloat)translateY
 {
 	NSAffineTransform* theTransform = [NSAffineTransform transform];
 	[theTransform translateXBy:translateX yBy:translateY];
 	[self transformUsingAffineTransform:theTransform];
 }
 
-- (void) transformRotatingByDegrees:(float)degrees
+- (void) transformRotatingByDegrees:(CGFloat)degrees
 {
 	NSAffineTransform* theTransform = [NSAffineTransform transform];
 	[theTransform rotateByDegrees:degrees];
